@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -12,7 +11,7 @@
       const userName = document.getElementById('username').value;
       const password = document.getElementById('password').value;
 
-      const response = await fetch('http://localhost:5503/api/login', { // Проверьте здесь порт
+      const response = await fetch('http://localhost:5503/api/login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -30,14 +29,13 @@
     }
   </script>
 </head>
-
 <body class="bg-dark text-light">
   <div class="container w-50 pt-5">
     <h1>Login</h1>
     <input type="text" id="username" class="form-control mb-2" placeholder="Username" />
     <input type="password" id="password" class="form-control mb-2" placeholder="Password" />
     <button class="btn btn-outline-info w-100" onclick="login()">Login</button>
+    <p class="mt-2">Нет аккаунта? <a href="register.html" class="text-info">Регистрация</a></p>
   </div>
 </body>
-
 </html>
