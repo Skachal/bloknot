@@ -75,7 +75,7 @@ async function createNote() {
 
 async function deleteNote(id) {
   try {
-    await fetch(`https://my-bloknot-app.herokuapp.com/api/notes/${id}`, {
+    await fetch(`https://zaipal-uje-9861ca49f7b6.herokuapp.com/api/notes/${id}`, {
       method: 'DELETE',
       headers: { 'Authorization': token }
     });
