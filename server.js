@@ -7,7 +7,7 @@ const cors = require('cors');
 const { User, Note } = require('./models/Note');
 
 const app = express();
-const port = process.env.PORT || 5504; // Используем динамический порт из переменной окружения
+const port = process.env.PORT || 5505; // Используем динамический порт из переменной окружения
 
 app.use(cors());
 
