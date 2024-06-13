@@ -30,8 +30,7 @@ jobs:
         HEROKU_APP_NAME: ${{ secrets.HEROKU_APP_NAME }}
         HEROKU_EMAIL: ${{ secrets.HEROKU_EMAIL }}
       run: |
-        heroku auth:token
         echo "machine api.heroku.com login $HEROKU_EMAIL password $HEROKU_API_KEY" > ~/.netrc
         echo "machine git.heroku.com login $HEROKU_EMAIL password $HEROKU_API_KEY" >> ~/.netrc
-        git remote add heroku https://git.heroku.com/${{ secrets.HEROKU_APP_NAME }}.git
+        heroku git:remote -a ${{ secrets.HEROKU_APP_NAME }}
         git push heroku main
