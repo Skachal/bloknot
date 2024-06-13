@@ -12,6 +12,8 @@ jobs:
     steps:
     - name: Checkout code
       uses: actions/checkout@v2
+      with:
+        fetch-depth: 0  # Это позволяет выполнить полное клонирование репозитория
 
     - name: Set up Node.js
       uses: actions/setup-node@v1
@@ -33,4 +35,5 @@ jobs:
         echo "machine api.heroku.com login $HEROKU_EMAIL password $HEROKU_API_KEY" > ~/.netrc
         echo "machine git.heroku.com login $HEROKU_EMAIL password $HEROKU_API_KEY" >> ~/.netrc
         heroku git:remote -a ${{ secrets.HEROKU_APP_NAME }}
+        git fetch --unshallow
         git push heroku main
