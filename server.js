@@ -7,7 +7,7 @@ const cors = require('cors');
 const { User, Note } = require('./models/Note');
 
 const app = express();
-const port = 5503;
+const port = process.env.PORT || 5504; // Используем динамический порт из переменной окружения
 
 app.use(cors());
 
@@ -61,7 +61,8 @@ app.post('/api/notes', authenticateToken, async (req, res) => {
   const newNote = new Note({
     title,
     userId: req.user.userId,
-    userName: req.user.userName
+    userName: req.user.userName,
+    createdAt: new Date()
   });
   await newNote.save();
   res.json(newNote);

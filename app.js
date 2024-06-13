@@ -34,7 +34,7 @@ function renderNotes(notes) {
 
 async function fetchNotes() {
   try {
-    const response = await fetch('http://localhost:5503/api/notes', {
+    const response = await fetch('https://my-bloknot-app.herokuapp.com/api/notes', {
       headers: { 'Authorization': token }
     });
     if (!response.ok) {
@@ -52,7 +52,7 @@ async function createNote() {
   if (title.length === 0) return;
 
   try {
-    const response = await fetch('http://localhost:5503/api/notes', {
+    const response = await fetch('https://my-bloknot-app.herokuapp.com/api/notes', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -75,7 +75,7 @@ async function createNote() {
 
 async function deleteNote(id) {
   try {
-    await fetch(`http://localhost:5503/api/notes/${id}`, {
+    await fetch(`https://my-bloknot-app.herokuapp.com/api/notes/${id}`, {
       method: 'DELETE',
       headers: { 'Authorization': token }
     });
